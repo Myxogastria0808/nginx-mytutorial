@@ -1,3 +1,7 @@
+
+# `nginx.conf`
+
+```nginx.conf
 events {
     # 1ワーカーの接続数
     worker_connections 1024;
@@ -47,3 +51,22 @@ http {
         }
     }
 }
+```
+
+## References
+
+### `nginx.conf`
+
+https://zenn.dev/kumao/scraps/5c388624940df0
+
+https://qiita.com/Anorlondo448/items/c0234b2a5bf51578c974
+
+https://qiita.com/RyoMa_0923/items/55078f6fb57e9d70a37f
+
+https://dev.classmethod.jp/articles/nginx-tomcat-gzip/
+
+https://qiita.com/morrr/items/7c97f0d2e46f7a8ec967
+
+### ghcr trouble shooting
+
+https://github.com/orgs/community/discussions/25768
