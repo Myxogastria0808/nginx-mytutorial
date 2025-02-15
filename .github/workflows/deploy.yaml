@@ -30,7 +30,8 @@ jobs:
         run: |
           echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
       - name: Use REPO
-        run: echo "The value of REPO is: ${REPO}"
+        run: |
+          echo "The value of REPO is: ${REPO}"
       - name: Build and Push Container
         uses: docker/build-push-action@v5
         with:
