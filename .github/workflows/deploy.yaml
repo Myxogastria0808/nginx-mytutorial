@@ -26,10 +26,11 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set lowercase Owner Name
-        run: echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
-        env:
-          OWNER: '${{ github.repository_owner }}'
+      - name: lowercase REPO
+        run: |
+          echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+      - name: Use REPO
+        run: echo "The value of REPO is: ${REPO}"
       - name: Build and Push Container
         uses: docker/build-push-action@v5
         with:
