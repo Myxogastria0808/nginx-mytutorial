@@ -10,6 +10,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: website
+  OWNER: '${{ github.repository_owner }}'
 
 jobs:
   container:
@@ -26,6 +27,8 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set lowercase Owner Name
+        run: echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
       - name: Build and Push Container
         uses: docker/build-push-action@v5
         with:
