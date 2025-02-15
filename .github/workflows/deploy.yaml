@@ -26,14 +26,11 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: lowercase REPO
+      - name: Convert github.repository to lowercase 
         run: |
           echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-      - name: Use REPO
-        run: |
-          echo "The value of REPO is: ${REPO}"
       - name: Build and Push Container
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+          tags: ${{ env.REGISTRY }}/${{ REPO }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
