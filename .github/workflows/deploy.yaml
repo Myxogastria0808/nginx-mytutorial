@@ -28,9 +28,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Convert github.repository to lowercase 
         run: |
-          echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+          echo "REPOSITORY=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
       - name: Build and Push Container
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.REPO }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+          tags: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
