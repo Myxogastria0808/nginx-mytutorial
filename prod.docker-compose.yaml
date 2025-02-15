@@ -1,0 +1,9 @@
+services:
+  nginx-mytutorial:
+    image: ghcr.io/Myxogastria0808/nginx-mytutorial/website:main
+    container_name: website
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - '3000:80'

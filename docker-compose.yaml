@@ -1,0 +1,9 @@
+services:
+  nginx-mytutorial:
+    image: nginx-mytutorial
+    container_name: website
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - '3000:80'
